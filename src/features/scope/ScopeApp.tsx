@@ -45,7 +45,7 @@ export function ScopeApp() {
   const [kickoff, setKickoff] = useState(false);
   const [active, setActive] = useState(false);
 
-  const weeks = WEEKS[moveIn];
+  const weeks = WEEKS[moveIn] ?? 8;
   const b = useMemo(() => computeBudget({ carpetArea: area, flatAge: age, rooms, kitchenTier: tier, kitchenOption: kOpt }), [area, age, rooms, tier, kOpt]);
   const essRooms = rooms.filter((r) => r.status === "essential");
   const essItems = essRooms.reduce((s, r) => s + r.items, 0) + (age === "<5" ? 0 : 4);
