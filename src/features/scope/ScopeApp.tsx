@@ -238,11 +238,20 @@ export function ScopeApp() {
             <FileText className="h-8 w-8 text-brand-strong" />
             <p className="text-sm font-semibold">{essItems + 6} Line Items · {essRooms.length} Rooms · {tier} Spec Sheet Generated</p>
           </div>
-          <div className="card-surface p-5">
-            <p className="text-xs font-semibold text-brand-strong">STEP 2 OF 2</p>
-            <h3 className="font-bold">Get Itemized Quotes</h3>
-            <p className="mt-1 text-sm text-muted-foreground">We have matched your brief with 3 verified local teams who guarantee line-by-line pricing on this exact scope.</p>
-            <button className="btn-ink mt-4" onClick={() => go("pros")}>View 3 Matched Pros & Request Quotes <ArrowRight className="h-4 w-4" /></button>
+          <div className="card-surface p-5 space-y-3">
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-semibold text-brand-strong">LAYER 2 · LOCAL SUPPLY PILOT</p>
+              <span className="rounded-full bg-brand-soft px-2 py-0.5 text-[10px] font-semibold text-brand-strong">Andheri West Pilot</span>
+            </div>
+            <h3 className="font-bold">Get Itemized Quotes from 3 Checked Pros</h3>
+            <p className="text-sm text-muted-foreground">We have matched your brief with 3 local teams who commit to line-by-line pricing on this exact scope.</p>
+            <button className="btn-ink mt-2" onClick={() => go("pros")}>View 3 Matched Pros & Request Quotes <ArrowRight className="h-4 w-4" /></button>
+            <div className="pt-2 border-t">
+              <p className="text-xs text-muted-foreground mb-1.5">Using your own contractor or family friend?</p>
+              <button onClick={() => alert("Scope Brief PDF downloaded to your device!")} className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white py-2.5 text-xs font-semibold text-slate-800 hover:bg-slate-50">
+                <Download className="h-3.5 w-3.5" /> Download Independent Scope Brief (PDF)
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -257,7 +266,7 @@ export function ScopeApp() {
       <div>
         <Header title="Matched Pros" onBack={() => go("budget")} />
         <div className="space-y-3 p-4">
-          <h2 className="text-lg font-bold">3 Verified Pros Matched in Andheri West</h2>
+          <h2 className="text-lg font-bold">3 Checked Pros Matched (Andheri West Pilot)</h2>
           <p className="flex items-center gap-1 text-xs text-muted-foreground"><Lock className="h-3 w-3" />Your phone number stays private. Pros only receive your Scope Brief.</p>
           {pros.map(([n, r, m, badges, s]) => (
             <div key={n} className="card-surface p-4">
@@ -360,7 +369,7 @@ export function ScopeApp() {
             </table>
           </div>
           <div className="card-surface space-y-3 p-4">
-            <Label>Adjusted Fair Total</Label>
+            <Label>Adjusted Total (Missing items added at benchmark)</Label>
             <div className="flex justify-between text-sm"><span>Apex Living</span><span className="font-bold">₹13.80L <span className="text-xs font-normal text-brand-strong">All items included</span></span></div>
             <div className="text-sm">
               <div className="flex justify-between"><span>Studio Craft</span><span><s className="text-muted-foreground">₹11.90L</s> → <b>₹13.40L</b></span></div>
@@ -379,7 +388,7 @@ export function ScopeApp() {
           <h2 className="text-lg font-bold">Confirm Terms with Apex Living Studio</h2>
           <div className="rounded-2xl bg-brand-soft p-4 text-sm font-semibold text-brand-strong"><Lock className="mr-1 inline h-4 w-4" />24 Line Items · Total ₹13,80,000 · Target Start: Oct 25</div>
           <div className="card-surface p-4">
-            <Label>Milestone Payment Schedule</Label>
+            <Label>Milestone Payment Schedule (Non-Custodial)</Label>
             {[["Mobilization", "20%", "₹2.76L", "Upon site setup and material delivery."], ["Civil & MEP", "30%", "₹4.14L", "After bathroom waterproofing and concealed piping pass inspection."], ["Woodwork", "30%", "₹4.14L", "After carcass assembly and laminate pressing."], ["Handover", "20%", "₹2.76L", "Only after snag list clearance and deep cleaning."]].map(([t, p, a, d], i) => (
               <div key={t} className="flex gap-3 border-l-2 border-brand py-2 pl-3">
                 <div>
@@ -390,7 +399,7 @@ export function ScopeApp() {
             ))}
           </div>
           <div className="card-surface space-y-2 p-4">
-            <Label>Safe Contractor Pledge · Signed</Label>
+            <Label>Contractor Scope Commitment · Signed</Label>
             {["No cash advances above 20%", "Written change-order for extra work", "Society NOC compliance guarantee", "Branded materials as per spec sheet", "Weekly photo progress updates"].map((x) => (
               <p key={x} className="flex items-center gap-2 text-sm"><ShieldCheck className="h-4 w-4 text-brand" />{x}</p>
             ))}
