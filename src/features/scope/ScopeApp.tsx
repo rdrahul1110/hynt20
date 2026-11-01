@@ -1,7 +1,7 @@
 import { useMemo, useState, type ReactNode } from "react";
 import {
   ArrowLeft, ArrowRight, Home, Compass, Plus, CalendarDays, User, MapPin, Check, Minus, Pencil,
-  Info, Star, ShieldCheck, AlertTriangle, Upload, FileText, Download, X, Clock, Sofa, ChefHat,
+  Info, Star, ShieldCheck, Upload, FileText, Download, X, Clock, Sofa, ChefHat,
   BedDouble, Bath, Fence, Ruler, Hammer, Paintbrush, Building2, Sparkles, Lock, Loader2,
 } from "lucide-react";
 import {
@@ -180,7 +180,7 @@ export function ScopeApp() {
             Target move-in: {weeks} weeks · Essential scope takes ~{estWeeks} weeks {ok ? "✓" : "⚠"}
           </div>
           {rooms.map((r) => {
-            const Ic = ROOM_ICONS[r.id];
+            const Ic = ROOM_ICONS[r.id] ?? Sofa;
             return (
               <div key={r.id} className={`card-surface p-4 ${r.status === "essential" ? "border-brand" : ""}`}>
                 <div className="flex gap-3">
@@ -466,4 +466,3 @@ export function ScopeApp() {
   );
 }
 
-export { AlertTriangle };
